@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class DestroyOnHit : MonoBehaviour
+public class KillPlayer : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,12 +16,11 @@ public class DestroyOnHit : MonoBehaviour
     {
         
     }
-
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != "Wall")
-        {
-            Destroy(collision.gameObject);
+        if (collision.name == "Player")
+        { 
+            SceneManager.LoadScene("GameOver");
         }
         Destroy(this.gameObject);
     }

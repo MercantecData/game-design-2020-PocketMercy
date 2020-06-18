@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 4809611075234993884}
   - component: {fileID: 1830833835822275865}
   - component: {fileID: 5884316812220217961}
-  - component: {fileID: 63518305499916191}
-  m_Layer: 9
+  - component: {fileID: 5511163944251499736}
+  m_Layer: 12
   m_Name: Snake_spit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5822191, y: 1.3034191}
   m_EdgeRadius: 0
---- !u!114 &63518305499916191
+--- !u!114 &5511163944251499736
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,6 +140,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 9006058773477055868}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1e7946f163557c438601f30155b9468, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b3cccb1f19acef4aaea8e2d56fd4d4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
