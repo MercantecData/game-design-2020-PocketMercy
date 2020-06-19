@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinCondition : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class WinCondition : MonoBehaviour
 
         if (Dead == quantity)
         {
-            print("you won");
+            SceneManager.LoadScene("WinScreen");
         }
     }
 }

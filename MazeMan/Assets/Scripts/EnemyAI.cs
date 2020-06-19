@@ -17,9 +17,9 @@ public class EnemyAI : MonoBehaviour
     public Transform waypoint1;
     public Transform waypoint2;
 
-    private bool timerStarted = false;
     private Transform nextwaypoint;
     private Timer timer;
+    private float nextTime = 0;
 
 
     // Start is called before the first frame update
@@ -60,25 +60,18 @@ public class EnemyAI : MonoBehaviour
             var playerPos = player.transform.position - transform.position;
             playerPos.z = 0;
             transform.right = playerPos;
-
-            if(!timerStarted)
-            {
-                print("starting timer");
-                StartTimer();
-            }
             
-            /*//Shoot only once pr sec
-            if (Time.deltaTime >= nextTime)
+            
+            if (Time.time >= nextTime)
             {
                 Shoot();
 
-                nextTime += Time.deltaTime;
-            }*/
+                nextTime = Time.time + 1;
+            }
 
             if (!TargetAquired())
             {
                 currentState = mainState;
-                timer.Change(-1, -1); // Stop the timer from running.
             }
         }
         else if(currentState == "Lookout")
@@ -90,23 +83,10 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    public void StartTimer()
+    private void Shoot()
     {
-        TimerCallback tcb = Shoot;
-        timer = new Timer(tcb, "shooting", TimeSpan.FromSeconds(1), TimeSpan.FromSeconds(1));
-        timerStarted = true;
-        print("Timer started");
-    }
-
-    private void Shoot(object state)
-    {
-        //Shoot
-        print(transform.position);
-        print("wtf");
         Vector3 projectilePosition = transform.position;
-        print("made position");
         GameObject projectile = Instantiate(projectilePrefab, projectilePosition, transform.rotation);
-        print("initilaized");
         Rigidbody2D rigidbody = projectile.GetComponent<Rigidbody2D>();
         rigidbody.velocity = projectile.transform.right * 10;
 
