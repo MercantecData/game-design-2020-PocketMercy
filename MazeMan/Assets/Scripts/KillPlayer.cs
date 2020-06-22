@@ -22,6 +22,9 @@ public class KillPlayer : MonoBehaviour
         { 
             SceneManager.LoadScene("GameOver");
         }
-        Destroy(this.gameObject);
+        if(gameObject.tag != "Trap")
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

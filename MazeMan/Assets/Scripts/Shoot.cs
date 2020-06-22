@@ -5,6 +5,8 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    public int bulletSpeed = 10;
+    private float nextTime = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,13 +18,18 @@ public class Shoot : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
         {
-            Vector3 bulletPosition = transform.position;
-            GameObject bullet = Instantiate(bulletPrefab, bulletPosition, transform.rotation);
+            if (Time.time >= nextTime)
+            {
+                Vector3 bulletPosition = transform.position;
+                GameObject bullet = Instantiate(bulletPrefab, bulletPosition, transform.rotation);
 
-            Rigidbody2D rigidbody = bullet.GetComponent<Rigidbody2D>();
-            rigidbody.velocity = bullet.transform.right * 10;
+                Rigidbody2D rigidbody = bullet.GetComponent<Rigidbody2D>();
+                rigidbody.velocity = bullet.transform.right * bulletSpeed;
 
-            Destroy(bullet, 10);
+                Destroy(bullet, 10);
+
+                nextTime = Time.time + 0.5f;
+            }
         }
     }
 }

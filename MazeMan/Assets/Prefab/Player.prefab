@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d6cda821e87fd44a7dad20347e0866, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
 --- !u!50 &8403352134073574585
 Rigidbody2D:
   serializedVersion: 4
@@ -163,6 +163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4318035525671822208, guid: 366ab5a886b2c6e45842aeb2485e396d,
     type: 3}
+  bulletSpeed: 20
 --- !u!1 &8403352134127894551
 GameObject:
   m_ObjectHideFlags: 0
