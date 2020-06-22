@@ -20,7 +20,6 @@ public class DestroyOnHit : MonoBehaviour
     {
         if (collision.tag == "Enemy")
         {
-            print(collision.name);
             Destroy(collision.gameObject);
         }
         Destroy(this.gameObject);
