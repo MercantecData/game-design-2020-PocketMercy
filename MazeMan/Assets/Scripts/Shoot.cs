@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
 {
     public GameObject bulletPrefab;
     public int bulletSpeed = 10;
+    public float reloadSpeed = 1f;
     private float nextTime = 0;
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,7 @@ public class Shoot : MonoBehaviour
 
                 Destroy(bullet, 10);
 
-                nextTime = Time.time + 0.5f;
+                nextTime = Time.time + 1f;
             }
         }
     }

@@ -19,7 +19,7 @@ public class KillPlayer : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.name == "Player")
-        { 
+        {
             SceneManager.LoadScene("GameOver");
         }
         if(gameObject.tag != "Trap")

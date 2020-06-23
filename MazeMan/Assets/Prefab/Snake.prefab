@@ -117,13 +117,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8dce3634fa6f99e458fd861fd0f20978, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 0}
+  projectilePrefab: {fileID: 9006058773477055868, guid: fd242e199da77304b97b4b1a7d30e9d4,
+    type: 3}
   mainState: Patrol
   currentState: Patrol
   mask:
     serializedVersion: 2
     m_Bits: 1024
-  range: 15
+  range: 30
   speed: 5
   waypoint1: {fileID: 0}
   waypoint2: {fileID: 0}
