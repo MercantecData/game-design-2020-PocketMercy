@@ -10,6 +10,7 @@ public class EnemyAI : MonoBehaviour
     public GameObject projectilePrefab;
     public string mainState = "Patrol";
     public string currentState = "Patrol";
+    public GameObject model;
 
     public LayerMask mask;
     public float range = 15;
@@ -59,9 +60,17 @@ public class EnemyAI : MonoBehaviour
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             var playerPos = player.transform.position - transform.position;
             playerPos.z = 0;
-            transform.right = playerPos;
-            
-            
+
+            //Set variables for model
+            var staticPostition = model.transform.right;
+            staticPostition.x = 0;
+            staticPostition.y = 0;
+            staticPostition.z = 0;
+
+            transform.right = playerPos; //Turn body
+            model.transform.right = staticPostition; //Keep model rotation
+
+
             if (Time.time >= nextTime)
             {
                 Shoot();

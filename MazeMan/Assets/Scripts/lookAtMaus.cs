@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class lookAtMaus : MonoBehaviour
 {
+    public GameObject model;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,10 +17,17 @@ public class lookAtMaus : MonoBehaviour
         var mousePos = Input.mousePosition;
         var mousePosWorld = Camera.main.ScreenToWorldPoint(mousePos);
 
-        var foxToMousePosition = mousePosWorld - transform.position;
+        var crossHairPos = mousePosWorld - transform.position;
 
-        foxToMousePosition.z = 0;
+        crossHairPos.z = 0;
 
-        transform.right = foxToMousePosition;
+        //Set variables for model
+        var staticPostition = transform.right;
+        staticPostition.x = 0;
+        staticPostition.y = 0;
+        staticPostition.z = 0;
+
+        transform.right = crossHairPos; //Turn player body
+        model.transform.right = staticPostition; //Keep model rotation
     }
 }

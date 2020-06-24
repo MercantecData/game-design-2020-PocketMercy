@@ -2,14 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPref : MonoBehaviour
+public class CursorScript : MonoBehaviour
 {
-    public string level;
     // Start is called before the first frame update
     void Start()
     {
-        PlayerPrefs.SetString("level", level);
-        print(PlayerPrefs.GetString("level"));
+        Cursor.visible = false;
     }
 
     // Update is called once per frame

@@ -1,21 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-
-public class ChangeName : MonoBehaviour
+public class GameController : MonoBehaviour
 {
+    public static GameController instance;
+    public string level;
+    public string playerName;
     // Start is called before the first frame update
     void Start()
     {
-        Text textfield = GetComponent<Text>();
-        textfield.text = GameController.instance.playerName;
+        DontDestroyOnLoad(gameObject);
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+    private void Awake()
+    {
+        instance = this;
     }
 }

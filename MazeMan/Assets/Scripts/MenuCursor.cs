@@ -1,16 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-
-public class ChangeName : MonoBehaviour
+public class MenuCursor : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        Text textfield = GetComponent<Text>();
-        textfield.text = GameController.instance.playerName;
+        Cursor.visible = true;
     }
 
     // Update is called once per frame

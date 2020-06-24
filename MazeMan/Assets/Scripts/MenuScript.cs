@@ -7,22 +7,22 @@ public class MenuScript : MonoBehaviour
 {
     public void Retry()
     {
-        var level = PlayerPrefs.GetString("level");
+        var level = GameController.instance.level;
         SceneManager.LoadScene(level);
     }
-    public void ChangeScene(string sceneName)
+    public void StartGame()
     {
-        PlayerPrefs.SetString("level", "Level 1");
-        SceneManager.LoadScene(sceneName);
+        GameController.instance.level = "Level 1";
+        SceneManager.LoadScene("Level 1");
     }
     public void NextLevel()
     {
-        if(PlayerPrefs.GetString("level") == "Level 1")
+        if(GameController.instance.level == "Level 1")
         {
-            PlayerPrefs.SetString("level", "Level 2");
+            GameController.instance.level = "Level 2";
             SceneManager.LoadScene("Level 2");
         }
-        else if (PlayerPrefs.GetString("level") == "Level 2")
+        else if (GameController.instance.level == "Level 2")
         {
             SceneManager.LoadScene("EndWinScreen");
         }
