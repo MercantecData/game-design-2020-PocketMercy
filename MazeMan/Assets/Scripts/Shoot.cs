@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class Shoot : MonoBehaviour
 {
+    private GameController gameController = GameController.instance;
     public GameObject bulletPrefab;
     public int bulletSpeed = 10;
-    public float reloadSpeed = 1f;
+    public float reloadSpeed;
     private float nextTime = 0;
-    //private AudioSource audioSource;
+    private AudioSource audioSource;
     // Start is called before the first frame update
     void Start()
     {
-        //audioSource.GetComponentInChildren<AudioSource>();
+        audioSource = gameObject.GetComponentInChildren<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        reloadSpeed = gameController.reloadSpeed;
         if(Input.GetMouseButtonDown(0))
         {
             if (Time.time >= nextTime)
@@ -29,11 +31,11 @@ public class Shoot : MonoBehaviour
                 Rigidbody2D rigidbody = bullet.GetComponent<Rigidbody2D>();
                 rigidbody.velocity = bullet.transform.right * bulletSpeed;
 
-                //audioSource.Play();
+                audioSource.Play();
 
                 Destroy(bullet, 10);
 
-                nextTime = Time.time + 1f;
+                nextTime = Time.time + reloadSpeed;
             }
         }
     }

@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Wall
   - Trap
+  - Coin
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Enemy
   - Enemy bullet
   - Trap
-  - 
+  - Coin
   - 
   - 
   - 
@@ -43,6 +44,9 @@ TagManager:
   m_SortingLayers:
   - name: Background
     uniqueID: 2274252107
+    locked: 0
+  - name: coins
+    uniqueID: 2991611099
     locked: 0
   - name: Default
     uniqueID: 0

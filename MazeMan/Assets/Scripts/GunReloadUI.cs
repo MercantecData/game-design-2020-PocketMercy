@@ -6,9 +6,10 @@ using UnityEngine.Events;
 
 public class GunReloadUI : MonoBehaviour
 {
+    private GameController gameController = GameController.instance;
     public Slider reloadBar;
     public Text displayText;
-    public float reloadingTime = 0.5f;
+    public float reloadingTime;
 
     private float currentValue;
     private bool reloading;
@@ -28,6 +29,7 @@ public class GunReloadUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         CurrentValue = reloadingTime;
         reloading = false;
     }
@@ -35,6 +37,7 @@ public class GunReloadUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        reloadingTime = gameController.reloadSpeed;
         if (reloading)
         {
             CurrentValue += Time.deltaTime;

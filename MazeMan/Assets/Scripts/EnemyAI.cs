@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour
     public string mainState = "Patrol";
     public string currentState = "Patrol";
     public GameObject model;
+    public int projectileSpeed = 10;
 
     public LayerMask mask;
     public float range = 15;
@@ -97,7 +98,7 @@ public class EnemyAI : MonoBehaviour
         Vector3 projectilePosition = transform.position;
         GameObject projectile = Instantiate(projectilePrefab, projectilePosition, transform.rotation);
         Rigidbody2D rigidbody = projectile.GetComponent<Rigidbody2D>();
-        rigidbody.velocity = projectile.transform.right * 10;
+        rigidbody.velocity = projectile.transform.right * projectileSpeed;
 
         Destroy(projectile, 10);
     }

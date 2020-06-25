@@ -1,11 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class KillPlayer : MonoBehaviour
+public class OnPickupCoin : MonoBehaviour
 {
     private GameController gameController = GameController.instance;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,15 +17,12 @@ public class KillPlayer : MonoBehaviour
     {
         
     }
-    void OnTriggerEnter2D(Collider2D collision)
+
+    void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collision.tag == "Player")
+        if(collider.tag == "Player")
         {
-            gameController.coins = 0;
-            SceneManager.LoadScene("GameOver");
-        }
-        if(gameObject.tag != "Trap")
-        {
+            gameController.coins += 1;
             Destroy(this.gameObject);
         }
     }

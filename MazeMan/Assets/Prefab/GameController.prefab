@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 
   playerName: 
+  reloadSpeed: 1
